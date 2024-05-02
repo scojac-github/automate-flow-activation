@@ -12,13 +12,11 @@ This script is largely borrowed from https://www.mitchspano.com/blog/automate_yo
 > Puppeteer
 > 
 > The automation for activating or deactivating a flow has a few steps:
-> > Validate Command-Line Arguments
-> > &nbsp;
-> > Fetch Salesforce Credentials and Construct a Login URL
-> > &nbsp;
-> > Fetch the Id of the Specified Flow
-> > &nbsp;
-> > Navigate to the Specified Flow and Activate/Deactivate
+> Validate Command-Line Arguments
+> Fetch Salesforce Credentials and Construct a Login URL
+> Fetch the Id of the Specified Flow
+> &nbsp;
+> Navigate to the Specified Flow and Activate/Deactivate
 
 # Running the script
 
@@ -26,6 +24,6 @@ To run the script, I typically first add it to the scripts folder in a SFDX proj
 
 `cd scripts`
 
-`node flowActivate.js {{YourFlowsAPINameGoesHere}}`
+`node flowActivate.js {{YourFlowsAPINameGoesHere}} Activate`
 
 And you're done!
