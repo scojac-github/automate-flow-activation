@@ -3,7 +3,7 @@
 Deploying new versions of Flows often requires Admins/Developers to manually click through the Setup menu, locate the Flow, and activate the new version. This can be cubersome or is often a step that is missed.
 
 # Overview
-This script is largely borrowed from https://www.mitchspano.com/blog/automate_your_post_deployment_steps_using_puppeteer. The blog covers the script in much more detail but its overview is simply:
+This script is largely (read: almost entirely) borrowed from https://www.mitchspano.com/blog/automate_your_post_deployment_steps_using_puppeteer. The blog covers the script in much more detail but its overview is simply:
 
 > There are three main tools we need to perform this automation:
 >
