@@ -7,15 +7,16 @@ This script is largely borrowed from https://www.mitchspano.com/blog/automate_yo
 
 > There are three main tools we need to perform this automation:
 >
-> node.js  
-> sfdx CLI  
-> Puppeteer  
+> - node.js  
+> - sfdx CLI  
+> - Puppeteer  
 > 
 > The automation for activating or deactivating a flow has a few steps:
-> Validate Command-Line Arguments  
-> Fetch Salesforce Credentials and Construct a Login URL  
-> Fetch the Id of the Specified Flow  
-> Navigate to the Specified Flow and Activate/Deactivate  
+> 
+> - Validate Command-Line Arguments  
+> - Fetch Salesforce Credentials and Construct a Login URL  
+> - Fetch the Id of the Specified Flow  
+> - Navigate to the Specified Flow and Activate/Deactivate  
 
 # Running the script
 
