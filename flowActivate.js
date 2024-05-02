@@ -26,6 +26,7 @@ const PUPPETEER_OPTIONS = {
   },
 };
 
+// Validate the command-line arguments
 function validateArguments(myArgs) {
   if (myArgs.length == 0 || myArgs.length == 1) {
     throw new Error(FLAGS_REQUIRED);
@@ -38,6 +39,7 @@ function validateArguments(myArgs) {
   }
 }
 
+// Retrieve the login URL for the Salesforce org
 function getLoginUrl() {
   const OPEN_ORG = "sfdx force:org:display --verbose --json";
   const FRONT_DOOR = "/secur/frontdoor.jsp?sid=";
@@ -50,10 +52,12 @@ function getLoginUrl() {
   );
 }
 
+// Construct the SOQL query to retrieve the latest version ID of the Flow
 function getFlowQuery(flowDeveloperName) {
   return `sfdx force:data:soql:query --query "SELECT LatestVersion.Id FROM FlowDefinition WHERE DeveloperName = '${flowDeveloperName}'" --usetoolingapi --json`;
 }
 
+// Retrieve the latest version ID of the Flow
 function getFlowId(flowDeveloperName) {
   let response = undefined;
   const stdout = execSync(getFlowQuery(flowDeveloperName)).toString();
@@ -72,10 +76,12 @@ function getFlowId(flowDeveloperName) {
   return response;
 }
 
+// Construct the Flow Builder URL based on the Flow ID
 function getFlowBuilderUrl(flowId) {
   return `/builder_platform_interaction/flowBuilder.app?flowId=${flowId}`;
 }
 
+// Generate messages for logging the script's actions
 function getClickButtonMessage(action) {
   return `Clicking "${action}" button`;
 }
@@ -84,9 +90,10 @@ function getSuccessMessage(flowDeveloperName, action) {
   return `Successfully ${action}d the ${flowDeveloperName} flow`;
 }
 
+// Set the status of the Flow (activate or deactivate)
 async function setFlowStatus(flowDeveloperName, action) {
   console.log(NAVIGATE_TO_LOGIN);
-  console.log(getLoginUrl)
+  console.log(getLoginUrl);
   const browser = await puppeteer.launch(PUPPETEER_OPTIONS);
   const page = await browser.newPage();
   await page.goto(getLoginUrl());
@@ -97,7 +104,7 @@ async function setFlowStatus(flowDeveloperName, action) {
   const flowUrl = baseUrl + getFlowBuilderUrl(getFlowId(flowDeveloperName));
 
   console.log(NAVIGATE_TO_FLOW);
-  console.log(getFlowBuilderUrl)
+  console.log(getFlowBuilderUrl);
   await page.goto(flowUrl);
   await new Promise(resolve => setTimeout(resolve, 12000));
 
@@ -117,6 +124,7 @@ async function setFlowStatus(flowDeveloperName, action) {
   await browser.close();
 }
 
+// Main function that handles the script execution
 function main() {
   const myArgs = process.argv.slice(2);
   validateArguments(myArgs);
