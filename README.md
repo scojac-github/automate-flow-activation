@@ -3,18 +3,23 @@
 Deploying new versions of Flows often requires Admins/Developers to manually click through the Setup menu, locate the Flow, and activate the new version. This can be cubersome or is often a step that is missed.
 
 # Overview
-This script is largely borrowed from https://www.mitchspano.com/blog/automate_your_post_deployment_steps_using_puppeteer. Per his article:
+This script is largely borrowed from https://www.mitchspano.com/blog/automate_your_post_deployment_steps_using_puppeteer. The blog covers the script in much more detail but its overview is simply:
 
 > There are three main tools we need to perform this automation:
 >
 > > node.js
+> > &nbsp;
 > > sfdx CLI
+> > &nbsp;
 > > Puppeteer
 > 
 > The automation for activating or deactivating a flow has a few steps:
 > > Validate Command-Line Arguments
+> > &nbsp;
 > > Fetch Salesforce Credentials and Construct a Login URL
+> > &nbsp;
 > > Fetch the Id of the Specified Flow
+> > &nbsp;
 > > Navigate to the Specified Flow and Activate/Deactivate
 
 # Running the script
