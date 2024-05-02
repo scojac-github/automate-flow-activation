@@ -7,11 +7,11 @@ This script is largely borrowed from https://www.mitchspano.com/blog/automate_yo
 
 > There are three main tools we need to perform this automation:
 >
-> > node.js
-> > &nbsp;
-> > sfdx CLI
-> > &nbsp;
-> > Puppeteer
+> node.js
+> &nbsp;
+> sfdx CLI
+> &nbsp;
+> Puppeteer
 > 
 > The automation for activating or deactivating a flow has a few steps:
 > > Validate Command-Line Arguments
